@@ -41,11 +41,8 @@ jobs:
     
     - name: Install golang-migrate
       run: |
-        mkdir -p $HOME/bin
         curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.1/migrate.linux-amd64.tar.gz | tar xvz
-        chmod +x migrate
-        mv migrate $HOME/bin/
-        echo "$HOME/bin" >> $GITHUB_PATH
+        sudo mv migrate /usr/local/bin/
         which migrate
     
     - name: Run migrations
